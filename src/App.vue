@@ -17,7 +17,6 @@ export default {
   <div>
     <AppHeader />
     <AppMain />
-    <AppCard />
   </div>
 </template>
 
