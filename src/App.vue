@@ -11,12 +11,8 @@ export default {
   },
   methods: {
     doSearch() {
-      while (store.listMovies.length > 0) {
-        store.listMovies.pop();
-      }
-      while (store.listTvs.length > 0) {
-        store.listTvs.pop();
-      }
+      store.listMovies.length = 0;
+      store.listTvs.length = 0;
       axios.get(store.urlApiMovie, {
           params: {
             api_key: store.apiKey,
