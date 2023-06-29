@@ -30,6 +30,7 @@ export default {
 <style lang="scss" scoped>
     .logo_boolflix h1{
         color: red;
+        padding: 15px 0;
     }
 
     .inline_block{

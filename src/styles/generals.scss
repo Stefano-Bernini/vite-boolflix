@@ -7,11 +7,23 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    background-color: rgb(71, 71, 71);
+}
+
 header {
     background-color: black;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    box-shadow: 0 0 15px 2px black;
 }
 
 main {
     background-color: rgb(71, 71, 71);
     color: white;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
