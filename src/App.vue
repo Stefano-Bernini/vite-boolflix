@@ -27,6 +27,7 @@ export default {
               titoloOriginale: movies[i].original_title,
               lingua: movies[i].original_language,
               voto: movies[i].vote_average,
+              copertina: movies[i].backdrop_path
             });
           }
           console.log(movies)
@@ -55,6 +56,7 @@ export default {
               titoloOriginale: series[i].original_name,
               lingua: series[i].original_language,
               voto: series[i].vote_average,
+              copertina: series[i].backdrop_path
             });
           }
           console.log(series)
