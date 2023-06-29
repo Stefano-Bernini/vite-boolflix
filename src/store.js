@@ -6,5 +6,5 @@ export const store = reactive({
     urlApiTv: 'https://api.themoviedb.org/3/search/tv',
     searchText: '',
     listMovies: [],
-    listTv: []
+    listTvs: []
 })

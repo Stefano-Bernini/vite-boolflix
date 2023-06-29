@@ -1,37 +1,35 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue'
-import AppCard from './components/AppCard.vue'
-import { store } from './store'
-import axios from 'axios';
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+import { store } from "./store";
+import axios from "axios";
 
 export default {
-  components:{
+  components: {
     AppHeader,
     AppMain,
-    AppCard
   },
   methods: {
-    doSearch(){
-      axios.get(store.urlApiMovie, { 
-        params: {
-          api_key: store.apiKey,  
-          query: store.searchText, 
-          language: 'it-IT',
-        }
-      })
+    doSearch() {
+      axios.get(store.urlApiMovie, {
+          params: {
+            api_key: store.apiKey,
+            query: store.searchText,
+            language: "it-IT",
+          },
+        })
         .then(function (response) {
           // handle success
           let movies = response.data.results;
-          for(let i=0; i < movies.length; i++) {
+          for (let i = 0; i < movies.length; i++) {
             store.listMovies.push({
               titolo: movies[i].title,
               titoloOriginale: movies[i].original_title,
-              lingua: movies[i].origianl_language,
-              voto: movies[i].vote_average
-              
-            })
+              lingua: movies[i].original_language,
+              voto: movies[i].vote_average,
+            });
           }
+          console.log(movies)
         })
         .catch(function (error) {
           // handle error
@@ -40,19 +38,46 @@ export default {
         .finally(function () {
           // always executed
         });
-    }
-  }
-  
-}
+        
+        axios.get(store.urlApiTv, {
+          params: {
+            api_key: store.apiKey,
+            query: store.searchText,
+            language: "it-IT",
+          },
+        })
+        .then(function (response) {
+          // handle success
+          let series = response.data.results;
+          for (let i = 0; i < series.length; i++) {
+            store.listTvs.push({
+              titolo: series[i].name,
+              titoloOriginale: series[i].original_name,
+              lingua: series[i].original_language,
+              voto: series[i].vote_average,
+            });
+          }
+          console.log(series)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+    },
+  },
+};
 </script>
 
 <template>
   <div>
-    <AppHeader @performSearch="doSearch"/>
+    <AppHeader @performSearch="doSearch" />
     <AppMain />
   </div>
 </template>
 
 <style lang="scss">
-  @use './styles/generals.scss' as *;
+@use "./styles/generals.scss" as *;
 </style>
