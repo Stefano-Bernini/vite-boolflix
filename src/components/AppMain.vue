@@ -15,22 +15,22 @@ export default {
 </script>
 
 <template>
-    <div>
+    <main>
         <div class="container">
             <div class="row">
-                <div v-for="(movie, index) in store.listMovies" class="col-12" :key="index">
+                <div v-for="(movie, index) in store.listMovies" class="col-4" :key="index">
                     <AppCard :info="movie"/>
                 </div>
             </div>
             <div class="row">
-                <div v-for="(serie, index) in store.listTvs" class="col-12" :key="index">
+                <div v-for="(serie, index) in store.listTvs" class="col-4" :key="index">
                     <AppCard :info="serie"/>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
-<style lang="">
+<style lang="scss" scoped>
     
 </style>

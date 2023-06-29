@@ -11,6 +11,12 @@ export default {
   },
   methods: {
     doSearch() {
+      while (store.listMovies.length > 0) {
+        store.listMovies.pop();
+      }
+      while (store.listTvs.length > 0) {
+        store.listTvs.pop();
+      }
       axios.get(store.urlApiMovie, {
           params: {
             api_key: store.apiKey,
@@ -27,7 +33,8 @@ export default {
               titoloOriginale: movies[i].original_title,
               lingua: movies[i].original_language,
               voto: movies[i].vote_average,
-              copertina: movies[i].backdrop_path
+              copertina: movies[i].poster_path,
+              desc: movies[i].overview
             });
           }
           console.log(movies)
@@ -56,7 +63,8 @@ export default {
               titoloOriginale: series[i].original_name,
               lingua: series[i].original_language,
               voto: series[i].vote_average,
-              copertina: series[i].backdrop_path
+              copertina: series[i].poster_path,
+              desc: series[i].overview
             });
           }
           console.log(series)

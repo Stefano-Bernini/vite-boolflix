@@ -10,20 +10,29 @@ export default {
 }
 </script>"
 <template>
-    <div>
+    <header>
         <div class="container ">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                    <div class="logo_boolflix">
+                        <h1>BOOLFLIX</h1>
+                    </div>
                     <div class="input_film_tv_title">
-                        <input type="text" v-model="store.searchText">
-                        <button @click="$emit('performSearch')">Cerca</button>
+                        <input type="text" v-model="store.searchText" placeholder="inserisci titolo">
+                        <button class="mx-1 btn btn-outline-danger" @click="$emit('performSearch')">Cerca</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 </template>
 
-<style lang="">
-    
+<style lang="scss" scoped>
+    .logo_boolflix h1{
+        color: red;
+    }
+
+    .inline_block{
+        display: inline-block;
+    }
 </style>
